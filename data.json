@@ -1,0 +1,46 @@
+[
+   {
+      "expenseName" : "Petrol",
+      "expenseDescription" : "Petrol needed to go to cardiff",
+      "total" : 324,
+      "ispaid" : true,
+      "dateAdded" : "NoDateAdded",
+      "dateofRecipt" : "NoDataOfRecipt",
+      "dateofExpensePayment" : "NodateOfExpensePayment",
+      "vat" : true,
+      "picture" : "expense1"
+   },
+   {
+       "expenseName" : "Food",
+       "expenseDescription" : "Food Cause im hungery",
+       "total" : 222,
+       "ispaid" : false,
+       "dateAdded" : "NoDateAdded",
+       "dateofRecipt" : "NoDataOfRecipt",
+       "dateofExpensePayment" : "NodateOfExpensePayment",
+       "vat" : false,
+       "picture" : "expense1"
+   },
+   {
+       "expenseName" : "Repair",
+       "expenseDescription" : "Repair cause it was needed",
+       "total" : 333,
+       "ispaid" : true,
+       "dateAdded" : "NoDateAdded",
+       "dateofRecipt" : "NoDataOfRecipt",
+       "dateofExpensePayment" : "NodateOfExpensePayment",
+       "vat" : false,
+       "picture" : "expense1"
+   },
+   {
+       "expenseName" : "Petrol",
+       "expenseDescription" : "Petrol to Newport",
+       "total" : 444,
+       "ispaid" : false,
+       "dateAdded" : "NoDateAdded",
+       "dateofRecipt" : "NoDataOfRecipt",
+       "dateofExpensePayment" : "NodateOfExpensePayment",
+       "vat" : true,
+       "picture" : "expense1"
+   }
+]
