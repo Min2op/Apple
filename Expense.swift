@@ -1,27 +1,28 @@
 //
 //  Expense.swift
-//  JsonStorage
+//  LetsLearn
 //
-//  Created by Phipps A (FCES) on 01/03/2023.
+//  Created by user232479 on 3/13/23.
 //
 
 import Foundation
-import SwiftUI
 
-class Expense: Codable, ObservableObject{
+
+
+struct Expense : Hashable, Codable, Identifiable{
+    var id: Int
     var expenseName: String
     var expenseDescription: String
-    var total: Double
-    @Published var ispaid: Bool
-    var dateAdded: String
-    var dateofRecipt: String
-    var dateofExpensePayment: String
-    var vat: Bool
-    private var picture: String
-    
-    var image: Image{
-        Image(picture)
-    }
-    
-    
+    var exepnsePrice: Double
+    var isExpensePaid: Bool
+    var dateAdded: Date
+    var dateOfRecipt: Date
+    var dateOfPayment: Date
+    var isVat: Bool
+    var isImage: Bool
 }
+
+
+
+
+

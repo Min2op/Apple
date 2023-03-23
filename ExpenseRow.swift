@@ -1,51 +1,58 @@
 //
 //  ExpenseRow.swift
-//  JsonStorage
+//  LetsLearn
 //
-//  Created by Phipps A (FCES) on 01/03/2023.
+//  Created by user232479 on 3/15/23.
 //
 
 import SwiftUI
 
 struct ExpenseRow: View {
+    @EnvironmentObject var expenseData: ExpenseData
     var expense: Expense
+    var expenseIndex: Int{
+        expenseData.dataExpenses.firstIndex(where: { $0.id == expense.id}) ?? 0
+    }
+    
     var body: some View {
-        HStack{
-        
-            expense.image
-                .resizable()
-                .frame(width: 50, height: 50)
-            Text(expense.expenseName)
-            if(expense.ispaid == true){
-                Text("| Paid |")
-                    .font(.subheadline)
-            }
-            else{
-                Text("| Not Paid|")
-                    .font(.footnote)
-            }
-            Spacer()
-            if(expense.vat == true){
-                Text("| VAT INCLUDED |")
-                    .font(.caption2)
-            }
-            else{
-                Text("| NO VAT |")
-                    .font(.caption2)
+        ZStack{
+            HStack{
+                VStack(alignment: .leading){
+                    Text(expense.expenseName)
+                    
+                    HStack{
+                        Text("is Paid?")
+                        PaidButton(isSet: $expenseData.dataExpenses[expenseIndex].isExpensePaid).onChange(of: expense.isExpensePaid){dat in
+                            save(expenses: expenseData.dataExpenses)
+                        }
+                        
+                        
+                    }
+                    
+                    if expenseData.dataExpenses[expenseIndex] .isExpensePaid == true{
+                        DatePicker(selection: $expenseData.dataExpenses[expenseIndex].dateOfPayment, in: ...Date.now, displayedComponents: .date ){
+                            Text("Date of payment")
+                            
+                        }
+                    }
+                }
+                
             }
         }
+        //Text("Date of Recipt \(expense.dateOfRecipt.formatted())" )
+    }
+    
+    func callSave(){
+        print("hey")
     }
 }
 
+
 struct ExpenseRow_Previews: PreviewProvider {
+    static let dataExpense = ExpenseData()
+    static var expense = ExpenseData().dataExpenses
     static var previews: some View {
-        Group{
-            ExpenseRow(expense: expenses[0])
-            ExpenseRow(expense: expenses[1])
-            ExpenseRow(expense: expenses[2])
-            
-            
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
+        ExpenseRow(expense: dataExpense.dataExpenses[0])
+            .environmentObject(dataExpense)
     }
 }

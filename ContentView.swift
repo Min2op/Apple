@@ -1,26 +1,23 @@
 //
 //  ContentView.swift
-//  JsonStorage
+//  LetsLearn
 //
-//  Created by Phipps A (FCES) on 01/03/2023.
+//  Created by user232479 on 3/13/23.
 //
 
 import SwiftUI
 
-
-struct ContentView: View {
-    
+struct ContentView: View {	
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-      
+        
+        ExpenseList().foregroundColor(Color.black)
+        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        
+            .environmentObject(ExpenseData())
     }
 }
